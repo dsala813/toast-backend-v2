@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: toast-data-middleware-v2
+    name: toast-data-middleware-v3
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -15,3 +15,5 @@ services:
         value: "*"
       - key: MAX_PREVIEW_ROWS
         value: "25"
+      - key: PYTHON_VERSION
+        value: "3.11.11"
