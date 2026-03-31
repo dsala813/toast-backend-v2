@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: toast-data-middleware-v2
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: OUTPUT_DIR
+        value: storage/outputs
+      - key: CORS_ALLOW_ORIGINS
+        value: "*"
+      - key: MAX_PREVIEW_ROWS
+        value: "25"
